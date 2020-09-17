@@ -12,7 +12,7 @@ function Form(props){
     return(
         <div className = "form container">
             <h2> New User Sign-up</h2>
-            <lable>
+            <label>
                 First Name
                 <input
                     type="text"
@@ -22,8 +22,8 @@ function Form(props){
                     placeholder = "Enter first name"
                 />
                 
-            </lable><br></br>
-            <lable>
+            </label><br></br>
+            <label>
                 Last Name
                 <input
                     type="text"
@@ -33,9 +33,9 @@ function Form(props){
                     placeholder = "Enter last name"
                 />
                 
-            </lable><br></br>
+            </label><br></br>
 
-            <lable>
+            <label>
                 Email
                 <input
                     type="text"
@@ -44,9 +44,9 @@ function Form(props){
                     onChange={onInputChange}
                     placeholder = "Enter your Email"/>
                 
-            </lable><br></br>
+            </label><br></br>
 
-            <lable>
+            <label>
                 Password
                 <input
                     type="text"
@@ -56,9 +56,9 @@ function Form(props){
                     placeholder = "Enter your password"
                 />
                 
-            </lable><br></br>
+            </label><br></br>
 
-            <lable>
+            <label>
                 Terms of Service
                 <input
                     type="checkbox"
@@ -67,7 +67,7 @@ function Form(props){
                     checked ={values.termsofservice}
                 />
                 
-            </lable><br></br>
+            </label><br></br>
 
             <div>{errors.username}</div>
             <div>{errors.email}</div>
