@@ -1,10 +1,14 @@
 import * as Yup from "yup";
 
 const Schema = Yup.object().shape({
-    username: Yup
+    first_name: Yup
         .string()
-        .min(3, "username must be at least 3 characters long.")
-        .required("username is Required"),
+        .min(3, "first name must be at least 3 characters long.")
+        .required("first name is Required"),
+    last_name: Yup
+        .string()
+        .min(3, "last name must be at least 3 characters long.")
+        .required("first name is Required"),
     email: Yup
         .string()
         .email("Must be a valid email address.")

@@ -10,16 +10,27 @@ function Form(props){
         errors,
     } = props
     return(
-        <div className = "form container" onSubmit={onSubmit}>
+        <div className = "form container">
             <h2> New User Sign-up</h2>
             <lable>
-                Name
+                First Name
                 <input
                     type="text"
-                    name="username"
-                    value={values.username}
+                    name="first_name"
+                    value={values.first_name}
                     onChange={onInputChange}
-                    placeholder = "Enter a username"
+                    placeholder = "Enter first name"
+                />
+                
+            </lable><br></br>
+            <lable>
+                Last Name
+                <input
+                    type="text"
+                    name="last_name"
+                    value={values.last_name}
+                    onChange={onInputChange}
+                    placeholder = "Enter last name"
                 />
                 
             </lable><br></br>
@@ -64,7 +75,7 @@ function Form(props){
             <div>{errors.termsofservice}</div>
             
 
-            <button disabled={disabled}> Summit Your Info</button>
+            <button disabled={disabled} onClick={onSubmit}> Submit Your Info</button>
         </div>
     )
 }

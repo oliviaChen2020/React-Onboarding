@@ -8,17 +8,19 @@ import axios from "axios"
 import * as Yup from "yup"
 
 const initialFormValues = {
-  username: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: '',
   termsofservice: false,
   
 }
 const initialFormErrors = {
-  username: '',
+  first_name: '',
+  last_name: '',
   email: '',
   password: '',
-  termsofservice: false,
+  termsofservice: '',
  
 }
 
@@ -36,21 +38,22 @@ function App() {
   const getUsers = () => {
     axios.get('https://reqres.in/api/users')
       .then(res => {
+        console.log(res.data.data)
         setUsers(res.data.data)
       })
       .catch(err => {
         console.log(err)
-        debugger
+        
       })
   }
 
   const postNewUser = newUser => {
     axios.post('https://reqres.in/api/users', newUser)
       .then(res => {
-        setUsers([...users.data, res.data.data])
+        setUsers([...users, res.data])
       })
-      .cath(err => {
-        debugger
+      .catch(err => {
+        console.log(err)
       })
       .finally(() => {
         setFormValues(initialFormValues)
@@ -103,10 +106,7 @@ function App() {
       });
     setFormValues({
       ...formValues,
-      termsofservice: {
-        ...formValues.termsofservice,
-        [name]: checked,
-      }
+      termsofservice: checked
     })
   }
 
@@ -114,10 +114,11 @@ function App() {
     evt.preventDefault()
 
     const newUser = {
-      username: formValues.username.trim(),
+      first_name: formValues.first_name.trim(),
+      last_name: formValues.last_name.trim(),
       email: formValues.email.trim(),
       password: formValues.password.trim(),
-      termsofservice: formValues.termsofservice 
+      
     }
     postNewUser(newUser)
   }
